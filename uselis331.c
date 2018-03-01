@@ -75,11 +75,7 @@ int main()
 {
    int fd, result;
 
-   // Initialize the interface by giving it an external device ID.
-   // The MCP4725 defaults to address 0x60.   
-   //
-   // It returns a standard file descriptor.
-   // 
+   // Initialize the LIS331, it has a default address of 0x19
    fd = wiringPiI2CSetup(0x19);
 
    setPowerMode(fd, NORMAL);

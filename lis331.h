@@ -1,4 +1,9 @@
 
+#ifndef __LIS331_H
+#define __LIS331_H
+
+#include <stdint.h>
+
 #define CTRL_REG1        0x20
 #define CTRL_REG2        0x21
 #define CTRL_REG3        0x22
@@ -34,3 +39,10 @@
   typedef enum {LOW_RANGE, MED_RANGE, NO_RANGE, HIGH_RANGE} fs_range;
   typedef enum {X_AXIS, Y_AXIS, Z_AXIS} int_axis;
 typedef enum {TRIG_ON_HIGH, TRIG_ON_LOW} trig_on_level;
+
+void setPowerMode(int fd, int pmode);
+void axesEnable(int fd, int enable);
+void zeroAxes(int fd);
+void readAxes(int fd, int16_t *x, int16_t *y, int16_t *z);
+
+#endif
